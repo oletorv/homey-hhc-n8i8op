@@ -1,0 +1,261 @@
+{
+  "id": "com.situne.hhc-n8i8op",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "HHC-N8I8OP Relay Controller App"
+  },
+  "description": {
+    "en": "Adds support for control of HHC-N8I8OP relay module via TCP/IP"
+  },
+  "category": [
+    "lights"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Situne AS",
+    "email": "contact@situne.no"
+  },
+  "discovery": {
+    "relay_discovery": {
+      "type": "mac",
+      "mac": {
+        "manufacturer": [
+          [ 72, 83, 0 ]
+        ]
+      }
+    }
+  },
+  "flow": {
+    "actions": [
+      {
+        "id": "action_turn_on_relay",
+        "title": {
+          "en": "Turn on relay"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device"
+          },
+          {
+            "type": "number",
+            "name": "channel",
+            "min": 1,
+            "max": 8,
+            "step": 1,
+            "placeholder": {
+              "en": "Select channel to turn on"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_turn_off_relay",
+        "title": {
+          "en": "Turn off relay"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device"
+          },
+          {
+            "type": "number",
+            "name": "channel",
+            "min": 1,
+            "max": 8,
+            "step": 1,
+            "placeholder": {
+              "en": "Select channel to turn off"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "n8i8op",
+      "name": "HHC-N8I8OP Relay Module",
+      "class": "sensor",
+      "capabilities": [ 
+        "onoff",
+        "onoff.1",
+        "onoff.2",
+        "onoff.3",
+        "onoff.4",
+        "onoff.5",
+        "onoff.6",
+        "onoff.7"
+       ],
+       "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Relay 1"
+          },
+          "greyout": false
+        },
+        "onoff.1": {
+          "title": {
+            "en": "Relay 2"
+          },
+          "greyout": false
+        },
+        "onoff.2": {
+          "title": {
+            "en": "Relay 3"
+          },
+          "greyout": false
+        },
+        "onoff.3": {
+          "title": {
+            "en": "Relay 4"
+          },
+          "greyout": false
+        },
+        "onoff.4": {
+          "title": {
+            "en": "Relay 5"
+          },
+          "greyout": false
+        },
+        "onoff.5": {
+          "title": {
+            "en": "Relay 6"
+          },
+          "greyout": false
+        },
+        "onoff.6": {
+          "title": {
+            "en": "Relay 7"
+          },
+          "greyout": false
+        },
+        "onoff.7": {
+          "title": {
+            "en": "Relay 8"
+          },
+          "greyout": false
+        }
+      },
+      "discovery": "relay_discovery",
+      "pair": [
+        {
+        "id": "list_devices",
+        "template": "list_devices",
+        "navigation": {
+          "next": "add_my_devices"
+        }
+      },
+      {
+        "id": "add_my_devices",
+        "template": "add_devices"
+      }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General Settings"
+          },
+          "children": [
+            {
+              "id": "relay_1_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 1 Name"
+              },
+              "value": "Relay 1",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel one."
+              }
+            },
+            {
+              "id": "relay_2_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 2 Name"
+              },
+              "value": "Relay 2",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel two."
+              }
+            },
+            {
+              "id": "relay_3_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 3 Name"
+              },
+              "value": "Relay 3",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel three."
+              }
+            },
+            {
+              "id": "relay_4_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 4 Name"
+              },
+              "value": "Relay 4",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel four."
+              }
+            },
+            {
+              "id": "relay_5_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 5 Name"
+              },
+              "value": "Relay 5",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel five."
+              }
+            },
+            {
+              "id": "relay_6_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 6 Name"
+              },
+              "value": "Relay 6",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel six."
+              }
+            },
+            {
+              "id": "relay_7_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 7 Name"
+              },
+              "value": "Relay 7",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel seven."
+              }
+            },
+            {
+              "id": "relay_8_name",
+              "type": "text",
+              "label": {
+                "en": "Relay 8 Name"
+              },
+              "value": "Relay 8",
+              "hint": {
+                "en": "Here you can add a custom name to relay channel eight."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
